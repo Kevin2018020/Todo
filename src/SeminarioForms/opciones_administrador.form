@@ -932,6 +932,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ojala de"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtcontador">
             </Component>
