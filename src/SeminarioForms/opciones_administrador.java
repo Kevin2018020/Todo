@@ -594,7 +594,7 @@ ArrayList<Usuario> usuarios;
             }
         });
 
-        txtUsuario.setText("ojala de");
+        txtUsuario.setText("ojala de esto si sriva la verdad estoy desesperado");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
