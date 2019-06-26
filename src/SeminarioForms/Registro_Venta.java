@@ -16,12 +16,14 @@ import entidades.Platillo;
 import java.util.ArrayList;
 import entidades.Venta;
 import Servicios.VentaServicio;
+import java.awt.Frame;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
 /**
@@ -200,7 +202,6 @@ public class Registro_Venta extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         txtNo = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -214,7 +215,6 @@ public class Registro_Venta extends javax.swing.JFrame {
         txtcantidad = new javax.swing.JTextField();
         agregarCompra = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -260,6 +260,11 @@ public class Registro_Venta extends javax.swing.JFrame {
                 "Codigo", "Descripcion", "Precio_Unitario", "Cantidad", "Sub_Total"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jLabel17.setText("Observacion");
@@ -365,9 +370,6 @@ public class Registro_Venta extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu_general12.jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -472,9 +474,8 @@ public class Registro_Venta extends javax.swing.JFrame {
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(712, 712, 712)
-                        .addComponent(txtNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                        .addComponent(txtNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(134, 134, 134)
                 .addComponent(jButton3))
         );
         jPanel2Layout.setVerticalGroup(
@@ -581,8 +582,7 @@ public class Registro_Venta extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(677, 677, 677)
                         .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(110, 116, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Venta", jPanel2);
@@ -596,7 +596,7 @@ public class Registro_Venta extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desayunos", "Almuerzos" }));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(42, 60, 88, 22);
+        jComboBox1.setBounds(42, 60, 78, 20);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Ensaladas Francesas", "Ensaladas dulces" };
@@ -610,7 +610,7 @@ public class Registro_Venta extends javax.swing.JFrame {
 
         cmbplatillos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Almuerzos", "bebidas frias", "bebidas calientes`", "postres" }));
         jPanel1.add(cmbplatillos);
-        cmbplatillos.setBounds(42, 93, 125, 22);
+        cmbplatillos.setBounds(42, 93, 125, 20);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -640,7 +640,7 @@ public class Registro_Venta extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(582, 457, 53, 23);
         jPanel1.add(txtcantidad);
-        txtcantidad.setBounds(645, 458, 122, 22);
+        txtcantidad.setBounds(645, 458, 122, 20);
 
         agregarCompra.setText("Agregar a la Compra");
         agregarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -658,14 +658,9 @@ public class Registro_Venta extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(218, 59, 79, 25);
+        jButton2.setBounds(218, 59, 73, 23);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu_general12.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(0, 0, 1040, 710);
-
-        jTabbedPane1.addTab("Agregar producto ", jPanel1);
+        jTabbedPane1.addTab("Agregar Producto", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -687,7 +682,7 @@ public void Cargar()
         Connection con=null;
        try {           
                 Class.forName("com.mysql.jdbc.Driver");
-                 con=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","churumico");
+                 con=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","12345678");
                  Statement st=con.createStatement();
                  String sql="select * from empleados"; 
             ResultSet rs=st.executeQuery(sql);
@@ -723,7 +718,7 @@ public void Cargar()
        try {
             
              Class.forName("com.mysql.jdbc.Driver");
-                 cont=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","churumico");
+                 cont=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","12345678");
                  Statement st=cont.createStatement();
                  String sql="select * from platillo"; 
             ResultSet rs=st.executeQuery(sql);
@@ -774,9 +769,10 @@ public void Cargar()
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-    String n = txtNo.getText();
-    jTextArea2.setText("La cantidad a pagar es " + cantidadConLetra(n)+ "Quetzales");
-
+       //  String n = txtNo.getText();
+    // jTextArea2.setText("La cantidad a pagar es " + cantidadConLetra(n)+ "Quetzales");
+    jTabbedPane1.setSelectedIndex(1);
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
@@ -807,23 +803,29 @@ public void Cargar()
     }//GEN-LAST:event_txtapellidoActionPerformed
 
     private void agregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarCompraActionPerformed
-     Vector d =new Vector();
+   
+   jTabbedPane1.setSelectedIndex(0);
+    
+        Vector d =new Vector();
     
      txtTotal.setText("");
      txtiva.setText("");
      txtsubtotal.setText("");
 
      
-     
+     DecimalFormat formato1 = new DecimalFormat("#.00");
     String codigo = "81";
     String descripcion= "hamburuesa";
-    double precio_u= 8 ;
+    double precio_u= 10;
     int cantidad= Integer.parseInt(txtcantidad.getText() );
     
     double sub_total = precio_u * cantidad;
     
     double total = sub_total + suma; 
-
+    formato1.format(sub_total);
+    formato1.format(total);
+    
+    
     d.addElement(codigo);
     d.addElement(descripcion);
     d.addElement(precio_u);
@@ -832,20 +834,19 @@ public void Cargar()
     tb.addRow(d);
     jTable1.setModel(tb);
     suma = total + 0;
-    double iva = sumaIva + (sub_total * 0.12);
-    double subT =sumaSub + (sub_total / 1.12);
     
+    double iva = total * 0.12;
+    double subT = total - iva;      
     txtTotal.setText("Q." + total);
-    txtiva.setText("Q."+ iva);
-    txtsubtotal.setText("Q."+ subT);
-    
-    
+    txtiva.setText("Q."+ formato1.format(iva));
+    txtsubtotal.setText("Q."+ formato1.format(subT));
     txtNo.setText(total + "");
     
     
     sumaIva = iva + 0;
     sumaSub = subT + 0;
-
+    
+    
 
 
 
@@ -966,6 +967,42 @@ public void Cargar()
         // TODO add your handling code here:
     }//GEN-LAST:event_txtefectivoKeyTyped
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+      DecimalFormat formato1 = new DecimalFormat("#.00");
+    
+    int filaSele = jTable1.getSelectedRow();
+    String p = (jTable1.getValueAt(filaSele,2).toString());
+    int pasado = Integer.parseInt(jTable1.getValueAt(filaSele,3).toString());
+    
+    String n =JOptionPane.showInputDialog(null , "Ingrese la nueva cantidad");
+    int nuevo = 0;
+    if(n.equals("")){
+     nuevo = pasado;
+    }else{
+    nuevo = Integer.parseInt(n);
+    }
+   
+ 
+    tb.setValueAt( nuevo , filaSele, 3);
+    double precio = Double.parseDouble(p);
+    double nuevoprecio = precio * nuevo;
+    double precioPasado = precio * pasado ; 
+    
+    
+    suma = suma - precioPasado + nuevoprecio;
+    
+    double iva = suma * 0.12;
+    double subT = suma - iva;      
+    txtTotal.setText("Q." + suma);
+    txtiva.setText("Q."+ formato1.format(iva));
+    txtsubtotal.setText("Q."+ formato1.format(subT));
+    txtNo.setText(suma + "");
+    
+    
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1030,8 +1067,6 @@ public void Cargar()
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
