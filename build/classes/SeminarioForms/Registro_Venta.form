@@ -57,11 +57,6 @@
               </Border>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="null"/>
-            </Property>
-          </AccessibilityProperties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Registro_Venta_jPanel2"/>
           </AuxValues>
@@ -169,13 +164,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="518" y="50" width="129" height="39"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="651" y="58" width="110" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

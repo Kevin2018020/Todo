@@ -105,13 +105,13 @@ ArrayList<Usuario> usuarios;
         txtdireccion = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        BucarDia = new com.toedter.calendar.JCalendar();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         txtUsuario = new javax.swing.JTextField();
         txtcontador = new javax.swing.JLabel();
+        BuscarDia = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -562,10 +562,6 @@ ArrayList<Usuario> usuarios;
 
         jTabbedPane1.addTab("Nuevo Empleado", jPanel4);
 
-        BucarDia.setDecorationBordersVisible(true);
-        BucarDia.setFocusCycleRoot(true);
-        BucarDia.setFocusTraversalPolicyProvider(true);
-
         jButton2.setText("Buscar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -601,8 +597,9 @@ ArrayList<Usuario> usuarios;
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(BucarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
+                        .addGap(22, 22, 22)
+                        .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -616,17 +613,18 @@ ArrayList<Usuario> usuarios;
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(BucarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(22, 22, 22)
                         .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(txtcontador, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                        .addComponent(txtcontador, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
@@ -779,9 +777,9 @@ ArrayList<Usuario> usuarios;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int año = BucarDia.getCalendar().get(Calendar.YEAR);
-        int mes =  BucarDia.getCalendar().get(Calendar.MARCH);
-        int dia = BucarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
+        int año = BuscarDia.getCalendar().get(Calendar.YEAR);
+        int mes =  BuscarDia.getCalendar().get(Calendar.MARCH);
+        int dia = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(año+"-"+mes+"-"+dia);
 
         String[]titulos = {"Usuario","fecha","hora"};
@@ -881,7 +879,7 @@ ArrayList<Usuario> usuarios;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JCalendar BucarDia;
+    private com.toedter.calendar.JCalendar BuscarDia;
     private javax.swing.JButton btnaceptar;
     private javax.swing.JButton btnaceptar1;
     private javax.swing.JButton btnagregar;

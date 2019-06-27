@@ -845,8 +845,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane3" alignment="0" min="-2" pref="540" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="BucarDia" min="-2" pref="374" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="BuscarDia" min="-2" pref="361" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
@@ -865,19 +866,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="BucarDia" min="-2" pref="267" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" pref="34" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="jButton3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="txtUsuario" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="txtcontador" pref="28" max="32767" attributes="0"/>
+                              <Component id="txtcontador" pref="24" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="BuscarDia" min="-2" pref="253" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -888,13 +890,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="com.toedter.calendar.JCalendar" name="BucarDia">
-              <Properties>
-                <Property name="decorationBordersVisible" type="boolean" value="true"/>
-                <Property name="focusCycleRoot" type="boolean" value="true"/>
-                <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
@@ -937,6 +932,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtcontador">
+            </Component>
+            <Component class="com.toedter.calendar.JCalendar" name="BuscarDia">
             </Component>
           </SubComponents>
         </Container>

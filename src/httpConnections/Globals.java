@@ -5,7 +5,6 @@
  */
 package httpConnections;
 
-<<<<<<< HEAD
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import java.io.BufferedReader;
@@ -59,5 +58,4 @@ public class Globals {
         return objeto;
     }
 }
-=======
->>>>>>> b5137b890c019007dae350e5b6c0a0af70017913
+

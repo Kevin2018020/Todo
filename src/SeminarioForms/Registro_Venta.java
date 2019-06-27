@@ -172,7 +172,6 @@ public class Registro_Venta extends javax.swing.JFrame {
         txttelefono = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -271,8 +270,6 @@ public class Registro_Venta extends javax.swing.JFrame {
         jLabel15.setText("Fecha de Emision* : ");
         jPanel2.add(jLabel15);
         jLabel15.setBounds(518, 50, 129, 39);
-        jPanel2.add(jDateChooser1);
-        jDateChooser1.setBounds(651, 58, 110, 20);
 
         jLabel16.setText("Vendedo* :");
         jPanel2.add(jLabel16);
@@ -520,7 +517,6 @@ public class Registro_Venta extends javax.swing.JFrame {
         jPanel4.setBounds(530, 140, 490, 110);
 
         jTabbedPane1.addTab("Venta", jPanel2);
-        jPanel2.getAccessibleContext().setAccessibleParent(null);
 
         jPanel1.setLayout(null);
 
@@ -1061,7 +1057,6 @@ public void Cargar()
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
