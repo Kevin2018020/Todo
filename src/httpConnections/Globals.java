@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+//import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  *
