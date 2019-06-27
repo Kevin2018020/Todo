@@ -830,7 +830,7 @@ ArrayList<Usuario> usuarios;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int año = BuscarDia.getCalendar().get(Calendar.YEAR);
-        int mes =  BuscarDia.getCalendar().get(Calendar.MONTH)-1;
+        int mes =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
         int dia = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(año+"-"+mes+"-"+dia);
 

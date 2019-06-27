@@ -159,8 +159,8 @@ setVisible(true);
             Usuario usuarioBuscado = conexionUsuario.recuperarPorUsername(Conexion.obtener(), nombreUsuario);
 Calendar cal=Calendar.getInstance();
 String fecha, hora;
-fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)-1)+"-"+cal.get(Calendar.DATE);
-hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE);
+fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DATE);
+hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
             if (usuarioBuscado != null) {
                 boolean usuarioValido = usuarioBuscado.getPassword().equals(Contra);
                 if (usuarioValido) {
