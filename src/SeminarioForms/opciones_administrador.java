@@ -15,7 +15,10 @@ import Servicios.UsuarioServicio;
 import entidades.Empleado;
 import Servicios.EmpleadoServicio;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,13 +36,16 @@ ArrayList<Usuario> usuarios;
      */
      TableModel modelo;
      TableModel modelos;
-         Clase  cn = new Clase();
+     
+    Clase  cn = new Clase();
     Connection cc=cn.conector();
 
     public opciones_administrador() {
         initComponents();
         usuarios = new ArrayList<Usuario>();
         this.setLocationRelativeTo(null);
+        Cargar();
+        CargarDesactivo();
     }
 
     /**
@@ -70,6 +76,9 @@ ArrayList<Usuario> usuarios;
         btnborrar = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         pa = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -238,11 +247,28 @@ ArrayList<Usuario> usuarios;
         });
 
         btnborrar.setText("Desactivrar");
+        btnborrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnborrarActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("   Desactivar  Usuario");
+        jLabel7.setText("Activar Usuario");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel18.setText("   Desactivar  Usuario");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton4.setText("Activar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -252,36 +278,55 @@ ArrayList<Usuario> usuarios;
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnaceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnborrar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(356, Short.MAX_VALUE))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99)
+                        .addComponent(btnborrar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(185, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(287, 287, 287))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(443, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(282, 282, 282)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
+                .addGap(131, 131, 131)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnborrar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnaceptar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(464, Short.MAX_VALUE)))
         );
 
         jScrollPane2.setViewportView(jPanel3);
 
-        jTabbedPane1.addTab("Desactivar Usuarios", jScrollPane2);
+        jTabbedPane1.addTab("Desactivar/Activar  Usuarios", jScrollPane2);
 
         pa.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51), 3), "Nuevo"));
 
@@ -353,7 +398,7 @@ ArrayList<Usuario> usuarios;
                     .addGroup(paLayout.createSequentialGroup()
                         .addGap(247, 247, 247)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 186, Short.MAX_VALUE))
+                .addGap(0, 217, Short.MAX_VALUE))
             .addGroup(paLayout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(jLabel2)
@@ -758,9 +803,6 @@ ArrayList<Usuario> usuarios;
     }else if(gmail.equals("yahoo.com")){
     correo = co + "@"+ "yahoo.com";
     }
-    
-    
-    
     Empleado emp = new Empleado();
             emp.setCodigo(codigo);
             emp.setNombre(nombre);
@@ -848,6 +890,61 @@ ArrayList<Usuario> usuarios;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+   public void Cargar()
+    {
+        Connection con=null;
+       try {           
+                Class.forName("com.mysql.jdbc.Driver");
+                 con=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","12345678");
+                 Statement st=con.createStatement();
+                 String sql="select * from usuarios where Activo = 1"; 
+            ResultSet rs=st.executeQuery(sql);
+            jComboBox2.removeAllItems();
+            while(rs.next())
+            {       
+               entidades.Usuario campos=new entidades.Usuario();
+ 
+             String Username=campos.getUsername(),c1="";  
+             Username =rs.getString("Username");
+                c1+= Username;
+               jComboBox2.addItem(c1);
+            }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(opciones_administrador.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        catch (SQLException ex) {
+            Logger.getLogger(opciones_administrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   public void CargarDesactivo()
+    {
+        Connection con=null;
+       try {           
+                Class.forName("com.mysql.jdbc.Driver");
+                 con=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","12345678");
+                 Statement st=con.createStatement();
+                 String sql="select * from usuarios where Activo = 0"; 
+            ResultSet rs=st.executeQuery(sql);
+            jComboBox1.removeAllItems();
+            while(rs.next())
+            {       
+               entidades.Usuario campos=new entidades.Usuario();
+ 
+             String Username=campos.getUsername(),c1="";  
+             Username =rs.getString("Username");
+                c1+= Username;
+            jComboBox1.addItem(c1);
+            }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(opciones_administrador.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        catch (SQLException ex) {
+            Logger.getLogger(opciones_administrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
+   
+   
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
  
         int rol = 0;        
@@ -892,6 +989,47 @@ ArrayList<Usuario> usuarios;
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed
+    String buscar = jComboBox2.getSelectedItem().toString();
+    
+    try{
+           String sql="Update usuarios set Activo='"+0+"'  where Username='"+buscar+"'";
+           PreparedStatement pes=cc.prepareStatement(sql);
+           pes.executeUpdate();
+       }catch(Exception e)
+       {
+           JOptionPane.showMessageDialog(rootPane, e);
+       }
+       CargarDesactivo();
+       Cargar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnborrarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+            JOptionPane.showConfirmDialog (null, "¿Esta Seguro de Reactivar el usuario? , Si lo hace el usuario podra ingresar a su cuenta"," Cuidado ", dialogButton);
+            if(dialogButton == JOptionPane.YES_OPTION) {
+              String buscar = jComboBox1.getSelectedItem().toString();     
+        try{
+           String sql="Update usuarios set Activo='"+1+"'  where Username='"+buscar+"'";
+           PreparedStatement pes=cc.prepareStatement(sql);
+           pes.executeUpdate();
+       }catch(Exception e)
+       {
+           JOptionPane.showMessageDialog(rootPane, e);
+       }
+       CargarDesactivo();
+       Cargar();
+            if(dialogButton == JOptionPane.NO_OPTION) {
+                  remove(dialogButton);
+                }
+              }
+
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -945,6 +1083,8 @@ ArrayList<Usuario> usuarios;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -955,6 +1095,7 @@ ArrayList<Usuario> usuarios;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
