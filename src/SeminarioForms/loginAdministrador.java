@@ -8,20 +8,16 @@ package SeminarioForms;
 import Servicios.ClienteServicio;
 import Servicios.Conexion;
 import Servicios.UsuarioServicio;
-import com.google.gson.JsonElement;
+
 import entidades.Cliente;
-import httpConnections.Globals;
-import httpConnections.IhttpRequests;
+
 import entidades.Usuario;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+
 
 /**
  *

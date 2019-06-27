@@ -7,9 +7,9 @@ package SeminarioForms;
 
 import Servicios.Conexion;
 import Servicios.UsuarioServicio;
-import com.google.gson.JsonElement;
+
 import entidades.Usuario;
-import httpConnections.Globals;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;

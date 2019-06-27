@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Servicios;
+import static java.lang.Integer.getInteger;
 import java.sql.*;
 
 public class Conexion {
@@ -27,5 +28,6 @@ public class Conexion {
       if (cnx != null) {
          cnx.close();
       }
+      
    }
 }

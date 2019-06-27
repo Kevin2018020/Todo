@@ -5,8 +5,8 @@
  */
 package SeminarioForms;
 
-import com.google.gson.JsonElement;
-import httpConnections.Globals;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -138,23 +138,7 @@ public class loginEmpleado extends javax.swing.JFrame {
        }
        String contra= String.valueOf(array);
        
-        try {
-            JsonElement objeto = Globals.sendGet("usuarios/login/"+txtusuario.getText()+"/"+contra+"/"+"3");
-            String res = objeto.getAsJsonObject().get("role").getAsString();
-            System.out.print(res);
-            
-            if (res.equals("3")) {
-                Menu_administrador prin = new Menu_administrador();
-                prin.setVisible(true);
-                this.hide();
-            } else {
-                JOptionPane.showMessageDialog(this, "El usuario o la contraseña son incorrectos");
-            }
-        
-        } catch (Exception ex) {
-            Logger.getLogger(loginAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "El usuario o la contraseña son incorrectos");
-        }
+       
     }//GEN-LAST:event_ingresoContaActionPerformed
 
     private void salirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirContaActionPerformed
