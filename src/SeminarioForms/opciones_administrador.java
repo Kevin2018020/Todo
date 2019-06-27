@@ -586,8 +586,6 @@ ArrayList<Usuario> usuarios;
             }
         });
 
-        txtUsuario.setText("ojala de esto si sriva la verdad estoy desesperado");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -778,7 +776,7 @@ ArrayList<Usuario> usuarios;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int año = BuscarDia.getCalendar().get(Calendar.YEAR);
-        int mes =  BuscarDia.getCalendar().get(Calendar.MARCH);
+        int mes =  BuscarDia.getCalendar().get(Calendar.MONTH);
         int dia = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(año+"-"+mes+"-"+dia);
 
@@ -794,11 +792,8 @@ ArrayList<Usuario> usuarios;
                 rg[0]= rt.getString("Usuario");
                 rg[1]= rt.getString("fecha");
                 rg[2]= rt.getString("hora");
-
                 modelo.addRow(rg);
-
             }
-
             tabla.setModel(modelo);
         }catch(Exception e)
         {
