@@ -991,8 +991,11 @@ ArrayList<Usuario> usuarios;
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnborrarActionPerformed
-    String buscar = jComboBox2.getSelectedItem().toString();
-    
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+            JOptionPane.showConfirmDialog (null, "¿Esta Seguro de desactivar a "+jComboBox2.getSelectedItem().toString()+"?","Eliminar Usuario", dialogButton);
+            if(dialogButton == JOptionPane.YES_OPTION) {
+                 String buscar = jComboBox2.getSelectedItem().toString();   
     try{
            String sql="Update usuarios set Activo='"+0+"'  where Username='"+buscar+"'";
            PreparedStatement pes=cc.prepareStatement(sql);
@@ -1003,13 +1006,21 @@ ArrayList<Usuario> usuarios;
        }
        CargarDesactivo();
        Cargar();
+                
+                
+            if(dialogButton == JOptionPane.NO_OPTION) {
+                  remove(dialogButton);
+                }
+              }
+        
+       
         // TODO add your handling code here:
     }//GEN-LAST:event_btnborrarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
         int dialogButton = JOptionPane.YES_NO_OPTION;
-            JOptionPane.showConfirmDialog (null, "¿Esta Seguro de Reactivar el usuario? , Si lo hace el usuario podra ingresar a su cuenta"," Cuidado ", dialogButton);
+            JOptionPane.showConfirmDialog (null, "¿Esta Seguro de Reactivar a "+jComboBox1.getSelectedItem().toString()+"? , Si lo hace el usuario podra ingresar a su cuenta"," Cuidado ", dialogButton);
             if(dialogButton == JOptionPane.YES_OPTION) {
               String buscar = jComboBox1.getSelectedItem().toString();     
         try{
@@ -1026,8 +1037,6 @@ ArrayList<Usuario> usuarios;
                   remove(dialogButton);
                 }
               }
-
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
