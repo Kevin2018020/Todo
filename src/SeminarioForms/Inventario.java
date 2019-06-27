@@ -164,11 +164,11 @@ DefaultTableModel tab=new DefaultTableModel();
 
         jLabel1.setText("Cantidad*:");
         panel_panaderia.add(jLabel1);
-        jLabel1.setBounds(90, 150, 63, 20);
+        jLabel1.setBounds(90, 150, 53, 20);
 
         jLabel11.setText("Idproducto*:");
         panel_panaderia.add(jLabel11);
-        jLabel11.setBounds(80, 60, 80, 16);
+        jLabel11.setBounds(80, 60, 80, 14);
 
         jLabel13.setText("Nombre*:");
         panel_panaderia.add(jLabel13);
@@ -200,7 +200,7 @@ DefaultTableModel tab=new DefaultTableModel();
             }
         });
         panel_panaderia.add(Imagen);
-        Imagen.setBounds(460, 160, 90, 22);
+        Imagen.setBounds(460, 160, 90, 20);
 
         jButton1.setText("Seleccionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +222,7 @@ DefaultTableModel tab=new DefaultTableModel();
 
         jLabel4.setText("Proveedor*:");
         panel_panaderia.add(jLabel4);
-        jLabel4.setBounds(100, 250, 71, 16);
+        jLabel4.setBounds(100, 250, 60, 14);
 
         txtipanaderia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icono_nuevo.png"))); // NOI18N
         txtipanaderia.setText("Guardar");
@@ -234,11 +234,11 @@ DefaultTableModel tab=new DefaultTableModel();
         panel_panaderia.add(txtipanaderia);
         txtipanaderia.setBounds(460, 270, 100, 40);
         panel_panaderia.add(txtcant0);
-        txtcant0.setBounds(180, 150, 60, 22);
+        txtcant0.setBounds(180, 150, 60, 20);
 
         jLabel20.setText("Precio*:");
         panel_panaderia.add(jLabel20);
-        jLabel20.setBounds(100, 290, 48, 16);
+        jLabel20.setBounds(100, 290, 39, 14);
         panel_panaderia.add(txtprecio0);
         txtprecio0.setBounds(180, 282, 110, 30);
 
