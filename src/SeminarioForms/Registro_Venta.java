@@ -481,6 +481,16 @@ public class Registro_Venta extends javax.swing.JFrame {
                 txtcFocusGained(evt);
             }
         });
+        txtc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcActionPerformed(evt);
+            }
+        });
+        txtc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Cambiar la cantidad");
 
@@ -633,9 +643,16 @@ public void Cargar()
             while(rs.next())
             {       
                entidades.Vendedores campos=new entidades.Vendedores();
-                int genero=campos.getGenero(), activo=campos.getActivo();
-             String codigo=campos.getCodigo(), nombre=campos.getNombre(), apellido=campos.getApellido(), telefono=campos.getTelefono();
-             String correo=campos.getCorreo(), direccion=campos.getDireccion(), dpi=campos.getDpi(), idsede=campos.getIdsede(),c1="";              
+                int genero=campos.getGenero(), 
+               activo=campos.getActivo();
+             String codigo=campos.getCodigo(), 
+              nombre=campos.getNombre(), 
+              apellido=campos.getApellido(),
+              telefono=campos.getTelefono();
+              String correo=campos.getCorreo(),
+              direccion=campos.getDireccion(), 
+              dpi=campos.getDpi(), 
+              idsede=campos.getIdsede(),c1="";              
               codigo=rs.getString("Codigo");
               nombre=rs.getString("Nombre");
               apellido=rs.getString("Apellido");
@@ -646,7 +663,7 @@ public void Cargar()
               dpi=rs.getString("DPI");
               activo=rs.getInt("Activo");
               idsede=rs.getString("Idsede");
-                c1+=codigo+" "+" "+nombre+" "+apellido;
+              c1+=codigo+" "+" "+nombre+" "+apellido;
                 cmbvendedores.addItem(c1);
             }
             } catch (ClassNotFoundException ex) {
@@ -960,16 +977,12 @@ public void Cargar()
     JOptionPane.showConfirmDialog(null, "Fila no Seleccionada");
     }else{
     jPanel4.setVisible(false);
-    
     DecimalFormat formato1 = new DecimalFormat("#.00");
     int filaSele = jTable1.getSelectedRow();
     String p = (jTable1.getValueAt(filaSele,2).toString());
-    int pasado = Integer.parseInt(jTable1.getValueAt(filaSele,3).toString());
-    
-    
+    int pasado = Integer.parseInt(jTable1.getValueAt(filaSele,3).toString()); 
     double precio = Double.parseDouble(p);
     double precioPasado = precio * pasado ; 
-     
     suma = suma - precioPasado;
     double iva = suma * 0.12;
     double subT = suma - iva;      
@@ -1007,6 +1020,18 @@ public void Cargar()
     private void txtefectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtefectivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtefectivoActionPerformed
+
+    private void txtcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcActionPerformed
+
+    private void txtcKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcKeyTyped
+    char validar = evt.getKeyChar();
+    if(Character.isLetter(validar)){
+    getToolkit().beep();
+    evt.consume();
+    } // TODO add your handling code here:
+    }//GEN-LAST:event_txtcKeyTyped
 
     /**
      * @param args the command line arguments
