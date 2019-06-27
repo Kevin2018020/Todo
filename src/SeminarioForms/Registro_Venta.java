@@ -161,6 +161,19 @@ public class Registro_Venta extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        cmbplatillos = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
+        txtcantidad = new javax.swing.JTextField();
+        agregarCompra = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -208,21 +221,95 @@ public class Registro_Venta extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         txtc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        cmbplatillos = new javax.swing.JComboBox<>();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
-        txtcantidad = new javax.swing.JTextField();
-        agregarCompra = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Menu");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(419, 21, 58, 45);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desayunos", "Almuerzos" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(42, 60, 78, 20);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Ensaladas Francesas", "Ensaladas dulces" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(42, 124, 125, 291);
+
+        cmbplatillos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Almuerzos", "bebidas frias", "bebidas calientes`", "postres" }));
+        jPanel1.add(cmbplatillos);
+        cmbplatillos.setBounds(42, 93, 125, 20);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(230, 100, 490, 0);
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList2);
+
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(820, 124, 151, 169);
+
+        jLabel2.setText("Camtidad");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(582, 457, 53, 23);
+
+        txtcantidad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcantidadActionPerformed(evt);
+            }
+        });
+        txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtcantidad);
+        txtcantidad.setBounds(645, 458, 130, 40);
+
+        agregarCompra.setText("Agregar a la Compra");
+        agregarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarCompraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(agregarCompra);
+        agregarCompra.setBounds(811, 449, 160, 38);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(218, 59, 73, 23);
+
+        jTabbedPane1.addTab("Agregar Producto", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 153), 2), "Ventas"));
@@ -484,6 +571,16 @@ public class Registro_Venta extends javax.swing.JFrame {
                 txtcFocusGained(evt);
             }
         });
+        txtc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcActionPerformed(evt);
+            }
+        });
+        txtc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Cambiar la cantidad");
 
@@ -521,93 +618,6 @@ public class Registro_Venta extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Venta", jPanel2);
         jPanel2.getAccessibleContext().setAccessibleParent(null);
-
-        jPanel1.setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Menu");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(419, 21, 58, 45);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desayunos", "Almuerzos" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(42, 60, 78, 20);
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Ensaladas Francesas", "Ensaladas dulces" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(42, 124, 125, 291);
-
-        cmbplatillos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Almuerzos", "bebidas frias", "bebidas calientes`", "postres" }));
-        jPanel1.add(cmbplatillos);
-        cmbplatillos.setBounds(42, 93, 125, 20);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(230, 100, 490, 0);
-
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(jList2);
-
-        jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(820, 124, 151, 169);
-
-        jLabel2.setText("Camtidad");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(582, 457, 53, 23);
-
-        txtcantidad.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcantidadActionPerformed(evt);
-            }
-        });
-        txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtcantidadKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtcantidad);
-        txtcantidad.setBounds(645, 458, 130, 40);
-
-        agregarCompra.setText("Agregar a la Compra");
-        agregarCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarCompraActionPerformed(evt);
-            }
-        });
-        jPanel1.add(agregarCompra);
-        agregarCompra.setBounds(811, 449, 160, 38);
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(218, 59, 73, 23);
-
-        jTabbedPane1.addTab("Agregar Producto", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -964,16 +974,12 @@ public void Cargar()
     JOptionPane.showConfirmDialog(null, "Fila no Seleccionada");
     }else{
     jPanel4.setVisible(false);
-    
     DecimalFormat formato1 = new DecimalFormat("#.00");
     int filaSele = jTable1.getSelectedRow();
     String p = (jTable1.getValueAt(filaSele,2).toString());
-    int pasado = Integer.parseInt(jTable1.getValueAt(filaSele,3).toString());
-    
-    
+    int pasado = Integer.parseInt(jTable1.getValueAt(filaSele,3).toString()); 
     double precio = Double.parseDouble(p);
     double precioPasado = precio * pasado ; 
-     
     suma = suma - precioPasado;
     double iva = suma * 0.12;
     double subT = suma - iva;      
@@ -1011,6 +1017,18 @@ public void Cargar()
     private void txtefectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtefectivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtefectivoActionPerformed
+
+    private void txtcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcActionPerformed
+
+    private void txtcKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcKeyTyped
+    char validar = evt.getKeyChar();
+    if(Character.isLetter(validar)){
+    getToolkit().beep();
+    evt.consume();
+    } // TODO add your handling code here:
+    }//GEN-LAST:event_txtcKeyTyped
 
     /**
      * @param args the command line arguments

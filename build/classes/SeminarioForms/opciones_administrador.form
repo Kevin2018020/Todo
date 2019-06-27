@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -111,13 +113,13 @@
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="rad1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtadmi" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="rad3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="rad2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtempleado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtconta" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnbuscar" min="-2" pref="143" max="-2" attributes="0"/>
@@ -130,18 +132,21 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="143" max="32767" attributes="0"/>
+                          <EmptySpace pref="140" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnbuscar" alignment="1" min="-2" pref="55" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="rad1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel1" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="txtadmi" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtconta" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="rad2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="rad3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtempleado" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -163,11 +168,12 @@
                     <Component class="javax.swing.JTable" name="tablecuentas">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="5" rowCount="4">
+                            <Column editable="true" title="Username" type="java.lang.Object"/>
+                            <Column editable="true" title="Password" type="java.lang.Object"/>
+                            <Column editable="true" title="Rol" type="java.lang.Object"/>
+                            <Column editable="true" title="Activo" type="java.lang.Object"/>
+                            <Column editable="true" title="Id Empleado" type="java.lang.Object"/>
                           </Table>
                         </Property>
                       </Properties>
@@ -191,23 +197,35 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbuscarActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rad1">
+                <Component class="javax.swing.JRadioButton" name="txtadmi">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroup2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Administrador"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rad2">
+                <Component class="javax.swing.JRadioButton" name="txtconta">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroup2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Contador"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rad3">
+                <Component class="javax.swing.JRadioButton" name="txtempleado">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroup2"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Empleado"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rad3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtempleadoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

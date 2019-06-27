@@ -32,6 +32,7 @@ ArrayList<Usuario> usuarios;
      * Creates new form opciones_administrador
      */
      TableModel modelo;
+     TableModel modelos;
          Clase  cn = new Clase();
     Connection cc=cn.conector();
 
@@ -51,6 +52,7 @@ ArrayList<Usuario> usuarios;
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -59,9 +61,9 @@ ArrayList<Usuario> usuarios;
         jLabel1 = new javax.swing.JLabel();
         btnmenu = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
-        rad1 = new javax.swing.JRadioButton();
-        rad2 = new javax.swing.JRadioButton();
-        rad3 = new javax.swing.JRadioButton();
+        txtadmi = new javax.swing.JRadioButton();
+        txtconta = new javax.swing.JRadioButton();
+        txtempleado = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         btnaceptar1 = new javax.swing.JButton();
@@ -120,13 +122,13 @@ ArrayList<Usuario> usuarios;
 
         tablecuentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Username", "Password", "Rol", "Activo", "Id Empleado"
             }
         ));
         jScrollPane4.setViewportView(tablecuentas);
@@ -141,15 +143,23 @@ ArrayList<Usuario> usuarios;
         });
 
         btnbuscar.setText("Buscar");
-
-        rad1.setText("Administrador");
-
-        rad2.setText("Contador");
-
-        rad3.setText("Empleado");
-        rad3.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rad3ActionPerformed(evt);
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(txtadmi);
+        txtadmi.setText("Administrador");
+
+        buttonGroup2.add(txtconta);
+        txtconta.setText("Contador");
+
+        buttonGroup2.add(txtempleado);
+        txtempleado.setText("Empleado");
+        txtempleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtempleadoActionPerformed(evt);
             }
         });
 
@@ -173,12 +183,12 @@ ArrayList<Usuario> usuarios;
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(rad1)
+                        .addComponent(txtadmi)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rad3)
-                            .addComponent(rad2))
+                            .addComponent(txtempleado)
+                            .addComponent(txtconta))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(192, 192, 192))))
@@ -186,17 +196,19 @@ ArrayList<Usuario> usuarios;
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(140, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rad1)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rad2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rad3)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtadmi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtconta)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtempleado)
+                        .addGap(10, 10, 10)))
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -713,9 +725,9 @@ ArrayList<Usuario> usuarios;
         this.dispose();
     }//GEN-LAST:event_btnaceptar1ActionPerformed
 
-    private void rad3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rad3ActionPerformed
+    private void txtempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtempleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rad3ActionPerformed
+    }//GEN-LAST:event_txtempleadoActionPerformed
 
     private void btnmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuActionPerformed
         this.dispose();
@@ -787,7 +799,6 @@ ArrayList<Usuario> usuarios;
         String[]titulos = {"Usuario","fecha","hora"};
         String[]rg = new String[3];
         try{
-
             String sql = "select * from vitacora where fecha = '"+fecha+"' ";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = cc.createStatement();
@@ -798,7 +809,6 @@ ArrayList<Usuario> usuarios;
                 rg[2]= rt.getString("hora");
 
                 modelo.addRow(rg);
-
             }
 
             tabla.setModel(modelo);
@@ -816,7 +826,6 @@ ArrayList<Usuario> usuarios;
         String[]rg = new String[3];
 
         try{
-
             String sql = "select * from vitacora where Usuario = '"+usu+"' ";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
             Statement st = cc.createStatement();
@@ -831,7 +840,6 @@ ArrayList<Usuario> usuarios;
                 contador++;
 
             }
-
             tabla.setModel(modelo);
             txtcontador.setText("Este usuario se ha conectado "+contador + " veces ");
         }catch(Exception e)
@@ -841,6 +849,51 @@ ArrayList<Usuario> usuarios;
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+ 
+        int rol = 0;        
+        if(txtadmi.isSelected() == true){
+        rol = 1;
+        }
+        if(txtconta.isSelected() == true){
+        rol = 2;
+        }
+        if(txtempleado.isSelected() == true){
+        rol = 3;
+        }
+        String[]titulos = {"Username","Password","Rol","Activo","IdEmpleado"};
+        String[]rg = new String[5];
+        try{
+            String sql = "select * from usuarios where Rol = '"+rol+"' ";
+            DefaultTableModel modelos = new DefaultTableModel(null, titulos);
+            Statement st = cc.createStatement();
+            ResultSet rt = st.executeQuery(sql);
+            while(rt.next()){
+                rg[0]= rt.getString("Username");
+                rg[1]= rt.getString("Password");
+                rg[2]= rt.getString("Rol");
+                rg[3]= rt.getString("Activo");
+                rg[4]= rt.getString("IdEmpleado");
+                modelos.addRow(rg);
+            }
+            tablecuentas.setModel(modelos);
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+
+
+
+
+
+
+
+
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -889,6 +942,7 @@ ArrayList<Usuario> usuarios;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnmenu;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> combo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -922,20 +976,20 @@ ArrayList<Usuario> usuarios;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JPanel pa;
-    private javax.swing.JRadioButton rad1;
-    private javax.swing.JRadioButton rad2;
-    private javax.swing.JRadioButton rad3;
     private javax.swing.JTable tabla;
     private javax.swing.JTable tablecuentas;
     private javax.swing.JTextField txtIdEmpleado;
     private javax.swing.JTextField txtUsuario;
+    private javax.swing.JRadioButton txtadmi;
     private javax.swing.JTextField txtape;
+    private javax.swing.JRadioButton txtconta;
     private javax.swing.JLabel txtcontador;
     private javax.swing.JPasswordField txtcontra;
     private javax.swing.JPasswordField txtcontra1;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtdpi;
+    private javax.swing.JRadioButton txtempleado;
     private javax.swing.JRadioButton txtfeme;
     private javax.swing.JComboBox<String> txtgmail;
     private javax.swing.JRadioButton txtmascu;
