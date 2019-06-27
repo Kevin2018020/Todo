@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package SeminarioForms;
-
+//todo bien todo correcto
 import Servicios.Conexion;
 
 import java.util.logging.Level;
