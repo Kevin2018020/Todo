@@ -3,8 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Mario/Documents/NetBeansProjects/ReySol/src/SeminarioForms/opciones_administrador.java</file>
             <file>file:/C:/Users/Mario/Documents/NetBeansProjects/ReySol/src/SeminarioForms/Registro_Venta.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/justin/Desktop/Program/ReySol/src/SeminarioForms/opciones_administrador.java</file>
+            <file>file:/C:/Users/justin/Desktop/Program/ReySol/src/SeminarioForms/Eventos.java</file>
+=======
+            <file>file:/C:/Users/Usuario/Desktop/programa/ReySol/src/SeminarioForms/Inventario.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/programa/ReySol/src/SeminarioForms/opciones_administrador.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/programa/ReySol/src/Servicios/conectar.java</file>
+>>>>>>> beec838bdb6cbdde05144cfd4bcd0d82de1b6d44
+>>>>>>> 2964ba9ea2862cb02b130570375117d55197b841
         </group>
     </open-files>
 </project-private>
