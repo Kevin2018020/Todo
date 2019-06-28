@@ -87,6 +87,11 @@ String fecha,hora;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Estadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Estadisticas.png"))); // NOI18N
+        Estadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadisticasActionPerformed(evt);
+            }
+        });
 
         Ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/vendedor.png"))); // NOI18N
         Ventas.addActionListener(new java.awt.event.ActionListener() {
@@ -307,6 +312,12 @@ SeminarioForms.Menu_Cargo prin = new SeminarioForms.Menu_Cargo();
             prin.setVisible(true);
             this.hide();  
     }//GEN-LAST:event_RecetasActionPerformed
+
+    private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
+ Estadisticas prin = new  Estadisticas();
+        prin.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_EstadisticasActionPerformed
   public void transparenciaButton(){
          Estadisticas.setOpaque (false);
          Estadisticas.setContentAreaFilled(false);

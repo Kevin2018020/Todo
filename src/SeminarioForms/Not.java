@@ -76,7 +76,7 @@ public class Not extends javax.swing.JFrame {
         prin.setVisible(true);
         this.hide();
         Menu_administrador prin2=new Menu_administrador();
-        prin2.hide();
+        prin2.setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
