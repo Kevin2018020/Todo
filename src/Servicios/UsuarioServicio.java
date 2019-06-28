@@ -27,12 +27,13 @@ public class UsuarioServicio {
            
             PreparedStatement consulta;
 
-            consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(Username,Password,Rol,Activo,IdEmpleado) VALUES(?, ?, ?,?,?)");
+            consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(Username,Password,Rol,Activo,IdEmpleado,Numero_Avatar) VALUES(?, ?, ?,?,?,?)");
             consulta.setString(1, usuario.getUsername());
             consulta.setString(2, usuario.getPassword());
             consulta.setInt(3, usuario.getRol());
             consulta.setInt(4, usuario.getActivo());
             consulta.setString(5, usuario.getIdEmpleado());
+            consulta.setInt(6,usuario.getNumero_Avatar());
             consulta.executeUpdate();
 
          }/*else{

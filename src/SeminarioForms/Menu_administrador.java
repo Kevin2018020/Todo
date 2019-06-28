@@ -5,11 +5,23 @@
  */
 package SeminarioForms;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import net.sf.jcarrierpigeon.Notification;
+import net.sf.jcarrierpigeon.NotificationQueue;
+import net.sf.jcarrierpigeon.WindowPosition;
+
 /**
  *
  * @author Dylan
  */
 public class Menu_administrador extends javax.swing.JFrame {
+     Clase  com = new Clase();
+    Connection cc=com.conector();
 
     /**
      * Creates new form Menu_administrador
@@ -18,6 +30,22 @@ public class Menu_administrador extends javax.swing.JFrame {
         initComponents();
         transparenciaButton();
         this.setLocationRelativeTo(null);
+      Calendar cal=Calendar.getInstance();
+String fecha;
+        fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DATE);
+        try{
+        String sql = "Select Fecha from eventos where Fecha = '"+fecha+"'";
+        Statement st = cc.createStatement();
+        ResultSet rt = st.executeQuery(sql);
+        if(rt.next()){
+        Not n=new Not();
+        Notification obj =new Notification(n,WindowPosition.BOTTOMRIGHT, 0, 0,7000);
+        NotificationQueue val=new NotificationQueue();
+        val.add(obj);
+        }
+        }catch(SQLException e){
+            
+        }
     }
 
     /**

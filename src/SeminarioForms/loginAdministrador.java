@@ -13,18 +13,24 @@ import entidades.Cliente;
 
 import entidades.Usuario;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
-
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  *
  * @author Dylan
  */
-public class loginAdministrador extends javax.swing.JFrame {
-
+public class loginAdministrador extends javax.swing.JFrame{
+ Clase  com = new Clase();
+    Connection cc=com.conector();
     /**
      * Creates new form loginAdministrador
      */
@@ -90,8 +96,6 @@ public class loginAdministrador extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Login_administrador.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Desktop\\menu_general12.jpg")); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,11 +152,15 @@ public class loginAdministrador extends javax.swing.JFrame {
         String Contra = "";
         Contra = DigestUtils.md5Hex(contraIngresada);
 
+setVisible(true);
         try {
             String nombreUsuario = txtusuario.getText();
             UsuarioServicio conexionUsuario = new UsuarioServicio();
             Usuario usuarioBuscado = conexionUsuario.recuperarPorUsername(Conexion.obtener(), nombreUsuario);
-
+Calendar cal=Calendar.getInstance();
+String fecha, hora;
+fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DATE);
+hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
             if (usuarioBuscado != null) {
                 boolean usuarioValido = usuarioBuscado.getPassword().equals(Contra);
                 if (usuarioValido) {
@@ -160,9 +168,20 @@ public class loginAdministrador extends javax.swing.JFrame {
                     boolean esAdministrador = usuarioBuscado.getRol() == 1;
                     if (usuarioActivo && esAdministrador) {
                         Menu_administrador prin = new Menu_administrador();
+                        try{
+                    String sql="insert into vitacora values('"+nombreUsuario+"','"+fecha+"','"+hora+"')";
+                    PreparedStatement pes=cc.prepareStatement(sql);
+                    pes.executeUpdate();
+                }catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                        
                         prin.setVisible(true);
                         this.hide();
+                        
                     }
+                
+                
                 }
 
             }
