@@ -645,7 +645,7 @@ public void Cargar()
                entidades.Vendedores campos=new entidades.Vendedores();
                 int genero=campos.getGenero(), 
                activo=campos.getActivo();
-             String codigo=campos.getCodigo(), 
+                 String codigo=campos.getCodigo(), 
               nombre=campos.getNombre(), 
               apellido=campos.getApellido(),
               telefono=campos.getTelefono();

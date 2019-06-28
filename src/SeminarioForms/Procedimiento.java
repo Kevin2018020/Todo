@@ -220,7 +220,7 @@ public class Procedimiento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-          Recetas prin = new Recetas();
+          Platillos prin = new Platillos();
             prin.setVisible(true);
             this.hide(); 
     }//GEN-LAST:event_jButton4ActionPerformed
