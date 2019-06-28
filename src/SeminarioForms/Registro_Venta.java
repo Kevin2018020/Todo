@@ -934,6 +934,7 @@ public void Cargar()
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
     jPanel4.setVisible(false);
+    
     DecimalFormat formato1 = new DecimalFormat("#.00");
     int filaSele = jTable1.getSelectedRow();
     String p = (jTable1.getValueAt(filaSele,2).toString());
