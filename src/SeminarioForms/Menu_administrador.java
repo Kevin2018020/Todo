@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 import net.sf.jcarrierpigeon.Notification;
 import net.sf.jcarrierpigeon.NotificationQueue;
 import net.sf.jcarrierpigeon.WindowPosition;
@@ -31,8 +32,17 @@ public class Menu_administrador extends javax.swing.JFrame {
         transparenciaButton();
         this.setLocationRelativeTo(null);
       Calendar cal=Calendar.getInstance();
-String fecha;
-        fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DATE);
+String fecha,hora;
+     fecha=cal.get(Calendar.YEAR)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.DATE);
+        hora=cal.get(cal.HOUR_OF_DAY)+":"+cal.get(cal.MINUTE)+":"+cal.get(cal.SECOND);
+         try{
+           String sql="Delete from eventos where HoraFinaliza<'"+hora+"' and Fecha='"+fecha+"'";
+           PreparedStatement pes=cc.prepareStatement(sql);
+          pes.executeUpdate();
+           }catch(SQLException e){
+          JOptionPane.showMessageDialog(null, e); 
+       }
+        
         try{
         String sql = "Select Fecha from eventos where Fecha = '"+fecha+"'";
         Statement st = cc.createStatement();
@@ -45,7 +55,7 @@ String fecha;
         }
         }catch(SQLException e){
             
-        }
+        }      
     }
 
     /**

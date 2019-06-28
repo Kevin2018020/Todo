@@ -37,7 +37,32 @@ TableModel modelo;
         
          cancelar.setEnabled(false);
          guardar.setEnabled(false);
-         
+         int años = BuscarDia.getCalendar().get(Calendar.YEAR);
+        int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
+        int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
+        String fecha =(años+"-"+meses+"-"+dias);
+        
+        String[]titulos = {"ID","Nombre","Lugar","Fecha","HoraInicio","HoraFinaliza"};
+        String[]rg = new String[6];
+        try{
+           String sql = "Select * from eventos where Fecha = '"+fecha+"'";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = cc.createStatement();
+            ResultSet rt = st.executeQuery(sql);
+            while(rt.next()){
+                rg[0]= rt.getString("ID");
+                rg[1]= rt.getString("Nombre");
+                rg[2]= rt.getString("Lugar");
+                rg[3]= rt.getString("Fecha");
+                rg[4]= rt.getString("HoraInicio");
+                rg[5]= rt.getString("HoraFinaliza");
+                modelo.addRow(rg);
+            }
+            tabla.setModel(modelo);
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
     }
 
     /**
@@ -400,19 +425,6 @@ Date iniciar=Inicio.getDate();
        }catch(SQLException e){
           JOptionPane.showMessageDialog(null, e); 
        }
-       
-       
-    }//GEN-LAST:event_guardarActionPerformed
-
-    private void Nombre_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nombre_EventoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Nombre_EventoActionPerformed
-
-    private void ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImagenActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int años = BuscarDia.getCalendar().get(Calendar.YEAR);
         int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
         int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
@@ -439,7 +451,44 @@ Date iniciar=Inicio.getDate();
         {
             System.out.println(e.toString());
         }
+       
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void Nombre_EventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nombre_EventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Nombre_EventoActionPerformed
+
+    private void ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ImagenActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ int años = BuscarDia.getCalendar().get(Calendar.YEAR);
+        int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
+        int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
+        String fecha =(años+"-"+meses+"-"+dias);
         
+        String[]titulos = {"ID","Nombre","Lugar","Fecha","HoraInicio","HoraFinaliza"};
+        String[]rg = new String[6];
+        try{
+           String sql = "Select * from eventos where Fecha = '"+fecha+"'";
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            Statement st = cc.createStatement();
+            ResultSet rt = st.executeQuery(sql);
+            while(rt.next()){
+                rg[0]= rt.getString("ID");
+                rg[1]= rt.getString("Nombre");
+                rg[2]= rt.getString("Lugar");
+                rg[3]= rt.getString("Fecha");
+                rg[4]= rt.getString("HoraInicio");
+                rg[5]= rt.getString("HoraFinaliza");
+                modelo.addRow(rg);
+            }
+            tabla.setModel(modelo);
+        }catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
