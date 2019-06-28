@@ -148,7 +148,7 @@ public class loginContador extends javax.swing.JFrame {
                     boolean usuarioActivo = usuarioBuscado.getActivo() == 2;
                     boolean esAdministrador = usuarioBuscado.getRol() == 2;
                     if (usuarioActivo && esAdministrador) {
-                       Inventario prin = new Inventario();
+                       Bodega prin = new Bodega();
                         prin.setVisible(true);
                         this.hide();
                     }
