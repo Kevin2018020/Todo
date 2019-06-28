@@ -18,65 +18,68 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-48,0,0,4,56"/>
   </AuxValues>
 
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="200" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Ventas" min="-2" pref="250" max="-2" attributes="0"/>
-              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-              <Component id="Bodega" min="-2" pref="250" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" pref="160" max="-2" attributes="0"/>
-              <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="860" pref="860" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="110" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
-              <Component id="Estadisticas" min="-2" pref="250" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="310" pref="310" max="-2" attributes="0"/>
-              <Component id="Eventos" min="-2" pref="250" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="830" pref="830" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-              <Component id="Compra" min="-2" pref="260" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <EmptySpace min="570" pref="570" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="770" pref="770" max="-2" attributes="0"/>
               <Component id="Recetas" min="-2" pref="250" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
-              <Component id="jLabel8" min="-2" pref="170" max="-2" attributes="0"/>
+              <EmptySpace min="520" pref="520" max="-2" attributes="0"/>
+              <Component id="Bodega" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
+              <Component id="Estadisticas" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="860" pref="860" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="110" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" pref="160" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="310" pref="310" max="-2" attributes="0"/>
+              <Component id="Eventos" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="290" pref="290" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="200" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="560" pref="560" max="-2" attributes="0"/>
               <Component id="Opciones" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="120" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="600" pref="600" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" pref="170" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+              <Component id="Ventas" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+              <Component id="Compra" min="-2" pref="260" max="-2" attributes="0"/>
           </Group>
           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
       </Group>
@@ -86,23 +89,26 @@
           <Group type="102" attributes="0">
               <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Ventas" min="-2" pref="250" max="-2" attributes="0"/>
-                  <Component id="Bodega" min="-2" pref="250" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
+              <Component id="Recetas" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="Bodega" min="-2" pref="250" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
               <Component id="Estadisticas" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="630" pref="630" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
@@ -110,27 +116,31 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
-              <Component id="Compra" min="-2" pref="250" max="-2" attributes="0"/>
+              <Component id="Opciones" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" pref="40" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
-              <Component id="Recetas" min="-2" pref="250" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="420" pref="420" max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
+              <Component id="Ventas" min="-2" pref="250" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace min="460" pref="460" max="-2" attributes="0"/>
-              <Component id="Opciones" min="-2" pref="250" max="-2" attributes="0"/>
+              <Component id="Compra" min="-2" pref="250" max="-2" attributes="0"/>
           </Group>
           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
       </Group>
@@ -143,6 +153,9 @@
           <Image iconType="3" name="/Imagenes/Estadisticas.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstadisticasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Ventas">
       <Properties>
@@ -268,7 +281,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="e3" green="e3" id="Resaltado de Control" palette="2" red="e3" type="palette"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Recetas"/>
+        <Property name="text" type="java.lang.String" value="Platillos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
