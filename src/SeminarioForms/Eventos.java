@@ -33,7 +33,7 @@ TableModel modelo;
     public Eventos() {
         initComponents();
         this.setLocationRelativeTo(null);
-         panel_evento.setVisible(false);
+         panel_evento.setVisible(true);
         
          cancelar.setEnabled(false);
          guardar.setEnabled(false);
