@@ -23,9 +23,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
               <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
+                      <Component id="txtusuario" min="-2" pref="410" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
                       <Component id="txtcontra" min="-2" pref="410" max="-2" attributes="0"/>
@@ -34,10 +39,6 @@
                       <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
                       <Component id="btnin" min="-2" pref="400" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
-                      <Component id="txtusuario" min="-2" pref="410" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="jLabel5" min="-2" pref="770" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -45,32 +46,31 @@
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="button2" min="-2" pref="104" max="-2" attributes="0"/>
           </Group>
-          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
+                      <Component id="txtusuario" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="280" pref="280" max="-2" attributes="0"/>
                       <Component id="txtcontra" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="390" pref="390" max="-2" attributes="0"/>
-                      <Component id="btnin" min="-2" pref="40" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
-                      <Component id="txtusuario" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="btnin" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel5" min="-2" pref="510" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="button2" min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
-          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -82,6 +82,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtusuarioActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="java.awt.Button" name="btnin">
       <Properties>
