@@ -15,6 +15,7 @@ public class Usuario {
     private int Rol; 
     private int Activo;
     private String IdEmpleado;
+    private int Numero_Avatar;
 
     /**
      * @return the Username
@@ -84,6 +85,20 @@ public class Usuario {
      */
     public void setIdEmpleado(String IdEmpleado) {
         this.IdEmpleado = IdEmpleado;
+    }
+
+    /**
+     * @return the Numero_Avatar
+     */
+    public int getNumero_Avatar() {
+        return Numero_Avatar;
+    }
+
+    /**
+     * @param Numero_Avatar the Numero_Avatar to set
+     */
+    public void setNumero_Avatar(int Numero_Avatar) {
+        this.Numero_Avatar = Numero_Avatar;
     }
 
     
