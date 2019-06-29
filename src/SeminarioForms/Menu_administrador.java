@@ -296,13 +296,13 @@ SeminarioForms.Menu_Cargo prin = new SeminarioForms.Menu_Cargo();
     }//GEN-LAST:event_RecetasActionPerformed
 
     private void EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadisticasActionPerformed
-<<<<<<< HEAD
+
  Estadisticas prin = new  Estadisticas();
         prin.setVisible(true);
         this.hide();
-=======
+
         // TODO add your handling code here:
->>>>>>> 81444cf8383c834dbf45642b23b90c4f88c4f118
+
     }//GEN-LAST:event_EstadisticasActionPerformed
   public void transparenciaButton(){
          Estadisticas.setOpaque (false);
