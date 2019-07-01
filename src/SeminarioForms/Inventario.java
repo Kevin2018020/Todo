@@ -218,7 +218,7 @@ public class Inventario extends javax.swing.JFrame {
         {
             
         }
-         String titulos[]={"IdProducto","Nombre","Categoría","Proveedor","Cantidad","Fecha_Vencimiento","Precio"};
+    String titulos[]={"IdProducto","Nombre","Categoría","Proveedor","Cantidad","Fecha_Vencimiento","Precio"};
     String registro[]=new String[7];
     String sql1="select*from productos where Categoria like '%"+categoria+"%'";
     String sql="select*from stock";
@@ -232,7 +232,7 @@ public class Inventario extends javax.swing.JFrame {
     registro[0]=r1.getString("IdProducto");
     registro[1]=r1.getString("Nombre");
     registro[2]=r1.getString("Categoria");
-     registro[3]=r.getString("NitProveedor");
+    registro[3]=r.getString("NitProveedor");
     registro[4]=r.getString("Cantidad");
     registro[5]=r.getString("FechaVencimiento");
     registro[6]=r.getString("Precio");

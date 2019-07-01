@@ -42,8 +42,8 @@ TableModel modelo;
         int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(años+"-"+meses+"-"+dias);
         
-        String[]titulos = {"ID","Nombre","Lugar","Fecha","HoraInicio","HoraFinaliza"};
-        String[]rg = new String[6];
+ String[]titulos = {"ID","Nombre","Cliente","Descripcion","Lugar","Fecha","HoraInicio","HoraFinaliza"};
+        String[]rg = new String[8];
         try{
            String sql = "Select * from eventos where Fecha = '"+fecha+"'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -52,10 +52,12 @@ TableModel modelo;
             while(rt.next()){
                 rg[0]= rt.getString("ID");
                 rg[1]= rt.getString("Nombre");
-                rg[2]= rt.getString("Lugar");
-                rg[3]= rt.getString("Fecha");
-                rg[4]= rt.getString("HoraInicio");
-                rg[5]= rt.getString("HoraFinaliza");
+                rg[2]= rt.getString("Cliente");
+                rg[3]= rt.getString("Descripcion");
+                rg[4]= rt.getString("Lugar");
+                rg[5]= rt.getString("Fecha");
+                rg[6]= rt.getString("HoraInicio");
+                rg[7]= rt.getString("HoraFinaliza");
                 modelo.addRow(rg);
             }
             tabla.setModel(modelo);
@@ -84,11 +86,13 @@ TableModel modelo;
         jLabel1 = new javax.swing.JLabel();
         Inicio = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
-        foto_panaderia = new javax.swing.JLabel();
-        Imagen = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         HoraInicio = new javax.swing.JFormattedTextField();
         HoraFin = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtDescripcion = new javax.swing.JTextField();
+        txtCliente = new javax.swing.JTextField();
         salir = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         nuevo = new javax.swing.JButton();
@@ -125,14 +129,6 @@ TableModel modelo;
 
         jLabel12.setText("Hora Inicio");
 
-        foto_panaderia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        Imagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ImagenActionPerformed(evt);
-            }
-        });
-
         jLabel14.setText("Hora Fin");
 
         try {
@@ -147,79 +143,83 @@ TableModel modelo;
             ex.printStackTrace();
         }
 
+        jLabel2.setText("Cliente");
+
+        jLabel4.setText("Desciripcion");
+
         javax.swing.GroupLayout panel_eventoLayout = new javax.swing.GroupLayout(panel_evento);
         panel_evento.setLayout(panel_eventoLayout);
         panel_eventoLayout.setHorizontalGroup(
             panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_eventoLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(60, 60, 60)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lugar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Nombre_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(panel_eventoLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_eventoLayout.createSequentialGroup()
+                                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panel_eventoLayout.createSequentialGroup()
+                                        .addComponent(txtCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                        .addGap(1, 1, 1))
+                                    .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Nombre_Evento, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                        .addComponent(Lugar)))))
+                        .addGroup(panel_eventoLayout.createSequentialGroup()
+                            .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(108, 108, 108)
                             .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(HoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(HoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(foto_panaderia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_eventoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         panel_eventoLayout.setVerticalGroup(
             panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_eventoLayout.createSequentialGroup()
                 .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(foto_panaderia, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(Nombre_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_eventoLayout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2))
-                            .addComponent(Lugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_eventoLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_eventoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel11)
+                    .addComponent(Nombre_Evento, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_eventoLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(Imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
+                    .addComponent(Lugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_eventoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
         salir.setText("Salir");
@@ -272,47 +272,48 @@ TableModel modelo;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 632, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(173, 173, 173))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(panel_evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(188, 188, 188)
+                .addComponent(nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BuscarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panel_evento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         lbfecha.setText("jLabel2");
@@ -378,7 +379,7 @@ TableModel modelo;
         Nombre_Evento.setText("");
         
         Lugar.setText("");
-        Imagen.setText("");
+        
        
         cancelar.setEnabled(false);
         guardar.setEnabled(false);
@@ -408,16 +409,18 @@ Date iniciar=Inicio.getDate();
        String HoraI="",HoraF="";
      HoraI=HoraInicio.getText();
      HoraF=HoraFin.getText();
+     String cli=txtCliente.getText();
+     String Descrip=txtDescripcion.getText();
 
 
        try{
-           String sql="insert into eventos (Nombre, Lugar, Fecha, HoraInicio, HoraFinaliza) values('"+Evento+"','"+L+"','"+fechaInicio+"','"+HoraI+"','"+HoraF+"')";
+           String sql="insert into eventos (Nombre, Cliente, Descripcion, Lugar, Fecha, HoraInicio, HoraFinaliza) values('"+Evento+"','"+L+"','"+cli+"','"+Descrip+"','"+fechaInicio+"','"+HoraI+"','"+HoraF+"')";
            PreparedStatement pes=cc.prepareStatement(sql);
           pes.executeUpdate();
           JOptionPane.showMessageDialog(null, "Evento creado");
              Nombre_Evento.setText(" ");
         Lugar.setText(" " );
-        Imagen.setText(" ");
+        
        HoraFin.setText(" ");
        HoraInicio.setText(" ");
        
@@ -425,13 +428,13 @@ Date iniciar=Inicio.getDate();
        }catch(SQLException e){
           JOptionPane.showMessageDialog(null, e); 
        }
-        int años = BuscarDia.getCalendar().get(Calendar.YEAR);
+            int años = BuscarDia.getCalendar().get(Calendar.YEAR);
         int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
         int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(años+"-"+meses+"-"+dias);
         
-        String[]titulos = {"ID","Nombre","Lugar","Fecha","HoraInicio","HoraFinaliza"};
-        String[]rg = new String[6];
+        String[]titulos = {"ID","Nombre","Cliente","Descripcion","Lugar","Fecha","HoraInicio","HoraFinaliza"};
+        String[]rg = new String[8];
         try{
            String sql = "Select * from eventos where Fecha = '"+fecha+"'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -440,10 +443,12 @@ Date iniciar=Inicio.getDate();
             while(rt.next()){
                 rg[0]= rt.getString("ID");
                 rg[1]= rt.getString("Nombre");
-                rg[2]= rt.getString("Lugar");
-                rg[3]= rt.getString("Fecha");
-                rg[4]= rt.getString("HoraInicio");
-                rg[5]= rt.getString("HoraFinaliza");
+                rg[2]= rt.getString("Cliente");
+                rg[3]= rt.getString("Descripcion");
+                rg[4]= rt.getString("Lugar");
+                rg[5]= rt.getString("Fecha");
+                rg[6]= rt.getString("HoraInicio");
+                rg[7]= rt.getString("HoraFinaliza");
                 modelo.addRow(rg);
             }
             tabla.setModel(modelo);
@@ -458,18 +463,14 @@ Date iniciar=Inicio.getDate();
         // TODO add your handling code here:
     }//GEN-LAST:event_Nombre_EventoActionPerformed
 
-    private void ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImagenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ImagenActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- int años = BuscarDia.getCalendar().get(Calendar.YEAR);
+     int años = BuscarDia.getCalendar().get(Calendar.YEAR);
         int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
         int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(años+"-"+meses+"-"+dias);
         
-        String[]titulos = {"ID","Nombre","Lugar","Fecha","HoraInicio","HoraFinaliza"};
-        String[]rg = new String[6];
+        String[]titulos = {"ID","Nombre","Cliente","Descripcion","Lugar","Fecha","HoraInicio","HoraFinaliza"};
+        String[]rg = new String[8];
         try{
            String sql = "Select * from eventos where Fecha = '"+fecha+"'";
             DefaultTableModel modelo = new DefaultTableModel(null, titulos);
@@ -478,17 +479,19 @@ Date iniciar=Inicio.getDate();
             while(rt.next()){
                 rg[0]= rt.getString("ID");
                 rg[1]= rt.getString("Nombre");
-                rg[2]= rt.getString("Lugar");
-                rg[3]= rt.getString("Fecha");
-                rg[4]= rt.getString("HoraInicio");
-                rg[5]= rt.getString("HoraFinaliza");
+                rg[2]= rt.getString("Cliente");
+                rg[3]= rt.getString("Descripcion");
+                rg[4]= rt.getString("Lugar");
+                rg[5]= rt.getString("Fecha");
+                rg[6]= rt.getString("HoraInicio");
+                rg[7]= rt.getString("HoraFinaliza");
                 modelo.addRow(rg);
             }
             tabla.setModel(modelo);
         }catch(Exception e)
         {
             System.out.println(e.toString());
-        }        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -530,12 +533,10 @@ Date iniciar=Inicio.getDate();
     private com.toedter.calendar.JCalendar BuscarDia;
     private javax.swing.JFormattedTextField HoraFin;
     private javax.swing.JFormattedTextField HoraInicio;
-    private javax.swing.JTextField Imagen;
     private com.toedter.calendar.JDateChooser Inicio;
     private javax.swing.JTextField Lugar;
     private javax.swing.JTextField Nombre_Evento;
     private javax.swing.JButton cancelar;
-    private javax.swing.JLabel foto_panaderia;
     private javax.swing.JButton guardar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -543,7 +544,9 @@ Date iniciar=Inicio.getDate();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbfecha;
@@ -552,5 +555,7 @@ Date iniciar=Inicio.getDate();
     private javax.swing.JPanel panel_evento;
     private javax.swing.JButton salir;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtCliente;
+    private javax.swing.JTextField txtDescripcion;
     // End of variables declaration//GEN-END:variables
 }
