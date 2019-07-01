@@ -5,22 +5,137 @@
  */
 package SeminarioForms;
 
+import Servicios.conectar;
+import com.sun.glass.events.KeyEvent;
+import entidades.ingredientes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Dylan
  */
 public class Platillos extends javax.swing.JFrame {
-
+conectar cc=new conectar();
+    Connection cn=cc.Conexionn();
+    ingredientes ing=new ingredientes();
+    DefaultTableModel m;
     /**
      * Creates new form Recetas
      */
     public Platillos() {
         initComponents();
         this.setLocationRelativeTo(null);
+        Cargar_R();
+        mostrar ("");
          
          
             
     }
+     public void mostrar (String valor){
+    String titulos[]={"IdPlatillo","Precio","IdReceta"};
+    String registro[]=new String[4];
+    String sql="select*from platillo";
+   
+    m=new DefaultTableModel(null,titulos);
+    
+    try{
+    Statement st=cn.createStatement();
+    ResultSet r=st.executeQuery(sql);
+    
+    while( r.next() ){
+    registro[0]=r.getString("IdPlatillo");
+    registro[1]=r.getString("Precio");
+    registro[2]=r.getString("IdReceta");
+    m.addRow(registro);
+    }
+    tabla.setModel(m);
+    }catch(SQLException ex){
+    JOptionPane.showMessageDialog(null, ex);
+    }
+   
+    }
+ public void BuscarProductos()
+{
+    Vector dato=new Vector();
+    
+    String bus=txtidreceta.getText();
+    String id="";    
+    String nombre="";
+        String descripcion="";
+        String ingredientes="";
+        String preparacion="";
+        String autor="";
+        String creacion="";
+                         
+            try
+                {
+                      String sql="select *from recetas where IdReceta='"+bus+"'";
+                      
+                      PreparedStatement pes=cn.prepareStatement(sql);               
+                      ResultSet raton=pes.executeQuery();
+                      while(raton.next())
+                      {
+                          id=raton.getString("IdReceta");
+                          nombre=raton.getString("Nombre");
+                          descripcion=raton.getString("Descripcion");
+                          preparacion=raton.getString("Preparacion");
+                          ingredientes=raton.getString("Ingredientes");
+                          autor =raton.getString("Autor");
+                          creacion =raton.getString("Creacion");
+                          
+                          
+                      }
+                      txtidreceta.setText(bus);
+                      txtnamereceta.setText(nombre);
+                      txtdreceta.setText(descripcion);
+                      txtingres.setText(ingredientes);
+                      txtprepa.setText(preparacion);
+                      txtautor.setText(autor);
+                      txtcreacion.setText(creacion);
+                }catch(Exception e)
+                {
+                    
+                }
+}     String c1="";
+                public void Cargar_R()
+    {
+        cmbrecetas.removeAllItems();
+       
+       String iding;
+       String nameing;
+        
+            try
+                {
+                      String sql="select *from recetas";
+                      PreparedStatement pes=cn.prepareStatement(sql);
+                      ResultSet raton=pes.executeQuery();
+                      while(raton.next())
+                      {
+                          iding=raton.getString("IdReceta");
+                          nameing=raton.getString("Nombre");
+                          
+                          
+                          c1=""+iding;
+                           cmbrecetas.addItem(c1);
+                           
+                }
+                      
+                }
+            
+            catch(Exception e){}
+                
+    }       
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,14 +146,54 @@ public class Platillos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        Platillos = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cmbrecetas = new javax.swing.JComboBox<>();
+        txtidplatillo = new javax.swing.JTextField();
+        txtpplatillo = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        txtidreceta = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtnamereceta = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtdreceta = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        btncargar = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtprepa = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        txtautor = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtingres = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        txtcreacion = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -79,20 +234,393 @@ public class Platillos extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Platillos", jPanel2);
-        jTabbedPane1.addTab("tab2", jPanel3);
+        Platillos.addTab("Platillos", jPanel2);
 
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 80, 640, 570);
+        jPanel1.setLayout(null);
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tabla);
+
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(20, 310, 600, 230);
+
+        Platillos.addTab("Existentes", jPanel1);
+
+        jPanel3.setLayout(null);
+
+        jLabel1.setText("Recetas:");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(200, 270, 50, 20);
+
+        jLabel5.setText("Crear Platillo");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(240, 20, 140, 30);
+
+        cmbrecetas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbrecetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbrecetasActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmbrecetas);
+        cmbrecetas.setBounds(250, 270, 130, 20);
+        jPanel3.add(txtidplatillo);
+        txtidplatillo.setBounds(190, 160, 160, 30);
+        jPanel3.add(txtpplatillo);
+        txtpplatillo.setBounds(190, 210, 160, 30);
+
+        jLabel11.setText("IdPlatillo:");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(137, 170, 50, 14);
+
+        jLabel17.setText("Precio:");
+        jPanel3.add(jLabel17);
+        jLabel17.setBounds(150, 210, 33, 14);
+
+        jButton3.setText("Crear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3);
+        jButton3.setBounds(460, 450, 59, 23);
+
+        Platillos.addTab("Agregar", jPanel3);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("IdReceta*:");
+
+        txtidreceta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtidreceta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidrecetaKeyTyped(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Nombre*:");
+
+        txtnamereceta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtnamereceta.setEnabled(false);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Descripción*:");
+
+        txtdreceta.setColumns(20);
+        txtdreceta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtdreceta.setRows(5);
+        txtdreceta.setEnabled(false);
+        jScrollPane3.setViewportView(txtdreceta);
+
+        jButton2.setText("Procedimiento");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setText("Receta");
+
+        btncargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(423, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(181, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtnamereceta, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(txtidreceta, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncargar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(185, 185, 185))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(265, Short.MAX_VALUE)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtidreceta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncargar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtnamereceta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+        );
+
+        Platillos.addTab("Receta", jPanel6);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Ingredientes*:");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Preparacion*:");
+
+        txtprepa.setColumns(20);
+        txtprepa.setRows(5);
+        txtprepa.setEnabled(false);
+        jScrollPane2.setViewportView(txtprepa);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Autor*: ");
+
+        txtautor.setEnabled(false);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Fecha *:");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("Procedimiento");
+
+        txtingres.setColumns(20);
+        txtingres.setRows(5);
+        txtingres.setEnabled(false);
+        jScrollPane1.setViewportView(txtingres);
+
+        jButton1.setText("Receta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        txtcreacion.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel8)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(451, 451, 451)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtautor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel10))
+                    .addComponent(txtcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        Platillos.addTab("Procedimientos", jPanel8);
+
+        getContentPane().add(Platillos);
+        Platillos.setBounds(10, 80, 640, 580);
         getContentPane().add(jPanel4);
         jPanel4.setBounds(260, 150, 10, 10);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu_general12.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1080, 720);
+        jButton8.setText("Salir");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8);
+        jButton8.setBounds(860, 400, 140, 30);
+
+        jButton9.setText("Existentes");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton9);
+        jButton9.setBounds(870, 180, 130, 30);
+
+        jButton10.setText("Agregar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton10);
+        jButton10.setBounds(870, 210, 130, 30);
+
+        jButton11.setText("Procedimientos");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton11);
+        jButton11.setBounds(870, 270, 130, 30);
+
+        jButton12.setText("Recetas");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton12);
+        jButton12.setBounds(870, 240, 130, 30);
+
+        jButton13.setText("Crear Receta");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13);
+        jButton13.setBounds(860, 370, 140, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        Platillos.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Platillos.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        Platillos.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+         Platillos.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        NewReceta prin=new NewReceta();
+        prin.show();
+        this.hide();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Menu_administrador prin=new Menu_administrador();
+        prin.show();
+        this.hide();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Platillos.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+Platillos.setSelectedIndex(3);
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btncargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargarActionPerformed
+        BuscarProductos();
+    }//GEN-LAST:event_btncargarActionPerformed
+
+    private void txtidrecetaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidrecetaKeyTyped
+         char presionada=evt.getKeyChar();
+        if(presionada==KeyEvent.VK_ENTER)
+        {
+            btncargar.doClick();
+        }
+    }//GEN-LAST:event_txtidrecetaKeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       String id=txtidplatillo.getText();
+       Double precio=Double.parseDouble(txtpplatillo.getText());
+       String receta=cmbrecetas.getSelectedItem().toString();
+       
+        try{
+           String sql="insert into platillo values('"+id+"','"+precio+"','"+receta+"')";
+           PreparedStatement pes=cn.prepareStatement(sql);
+           pes.executeUpdate();
+           JOptionPane.showMessageDialog(null, "insertados");
+       }catch(Exception e)
+       {
+           JOptionPane.showMessageDialog(null, e);
+                   
+       }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cmbrecetasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbrecetasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbrecetasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,13 +659,53 @@ public class Platillos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane Platillos;
+    private javax.swing.JButton btncargar;
+    private javax.swing.JComboBox<String> cmbrecetas;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtautor;
+    private javax.swing.JTextField txtcreacion;
+    private javax.swing.JTextArea txtdreceta;
+    private javax.swing.JTextField txtidplatillo;
+    private javax.swing.JTextField txtidreceta;
+    private javax.swing.JTextArea txtingres;
+    private javax.swing.JTextField txtnamereceta;
+    private javax.swing.JTextField txtpplatillo;
+    private javax.swing.JTextArea txtprepa;
     // End of variables declaration//GEN-END:variables
 }
