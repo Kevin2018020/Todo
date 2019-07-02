@@ -37,7 +37,7 @@ TableModel modelo;
         
          cancelar.setEnabled(false);
          guardar.setEnabled(false);
-         int años = BuscarDia.getCalendar().get(Calendar.YEAR);
+        int años = BuscarDia.getCalendar().get(Calendar.YEAR);
         int meses =  BuscarDia.getCalendar().get(Calendar.MONTH)+1;
         int dias = BuscarDia.getCalendar().get(Calendar.DAY_OF_MONTH);
         String fecha =(años+"-"+meses+"-"+dias);
