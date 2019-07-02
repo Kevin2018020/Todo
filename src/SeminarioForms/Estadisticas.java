@@ -5,12 +5,23 @@
  */
 package SeminarioForms;
 
+import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author justin
  */
 public class Estadisticas extends javax.swing.JFrame {
-
+  Clase  com = new Clase();
+    Connection cc=com.conector();
     /**
      * Creates new form Estadisticas
      */
@@ -29,21 +40,59 @@ public class Estadisticas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Ganancias");
+
+        jButton2.setText("Productos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(673, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(544, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+String path ="C:\\Users\\justin\\Desktop\\Program\\ReySol2\\src\\SeminarioForms\\ProductosStock.jasper";
+JasperReport jr=null;
+      try {
+          jr=(JasperReport) JRLoader.loadObjectFromLocation(path); 
+      JasperPrint jp=JasperFillManager.fillReport(jr,null,com.conector() );
+      JasperViewer jv=new JasperViewer(jp);
+      jv.setVisible(true);
+      jv.setTitle(path);
+      } catch (JRException ex) {
+          Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
+      }
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +130,7 @@ public class Estadisticas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }
