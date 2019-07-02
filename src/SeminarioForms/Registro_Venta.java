@@ -16,10 +16,12 @@ import entidades.Platillo;
 import java.util.ArrayList;
 import entidades.Venta;
 import Servicios.VentaServicio;
+import Servicios.conectar;
 import java.awt.Frame;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,8 +33,9 @@ import java.util.Vector;
  * @author Mario
  */
 public class Registro_Venta extends javax.swing.JFrame {
-
-    ArrayList<Platillo> platillos; 
+conectar cc=new conectar();
+Connection cn=cc.Conexionn();
+        ArrayList<Platillo> platillos; 
     DefaultTableModel tb = new DefaultTableModel();
     double suma = 0;
     double sumaIva = 0;
@@ -673,16 +676,16 @@ public void Cargar()
             Logger.getLogger(Registro_Venta.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        public void CargarPlatillos(){
-            Connection cont=null;
+        
+            public void CargarPlatillos(){
+           cmbplatillos.removeAllItems();
        try {
             
-             Class.forName("com.mysql.jdbc.Driver");
-                 cont=DriverManager.getConnection("jdbc:mysql://localhost/reysolbase","root","12345678");
-                 Statement st=cont.createStatement();
+             
                  String sql="select * from platillo"; 
-            ResultSet rs=st.executeQuery(sql);
-            cmbplatillos.removeAllItems();
+                 PreparedStatement pes=cn.prepareStatement(sql);
+            ResultSet rs=pes.executeQuery();
+            
             while(rs.next())
             {       
                entidades.Platillo campos=new entidades.Platillo();
@@ -691,20 +694,19 @@ public void Cargar()
                 double precio=campos.getPrecio();
                 
                 
-              idproducto =rs.getString("IdProducto");
-              nombre=rs.getString("Nombre");
+              idproducto =rs.getString("IdPlatillo");
+              
               precio=rs.getDouble("Precio");
               id_receta=rs.getString("IdReceta");
-                c1+=nombre+" ";
+                c1+=idproducto+" ";
                 cmbplatillos.addItem(c1);
             }
-            } catch (ClassNotFoundException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(Registro_Venta.class.getName()).log(Level.SEVERE, null, ex);
             } 
-        catch (SQLException ex) {
-            Logger.getLogger(Registro_Venta.class.getName()).log(Level.SEVERE, null, ex);
+       
         }
-        }
+        
     private void nuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nuevo1ActionPerformed

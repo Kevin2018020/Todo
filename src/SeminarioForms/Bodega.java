@@ -27,7 +27,7 @@ public class Bodega extends javax.swing.JFrame {
     Productos prods=new Productos();
     stock prodss=new stock();
     Proveedores provs=new Proveedores();
-    String proveedores="",proveedores2="",proveedores3="";
+    
     
     /**
      * Creates new form Inventoarios
@@ -37,6 +37,7 @@ public class Bodega extends javax.swing.JFrame {
         Cargar_P();
         Cargar_P2();
         Cargar_P3();
+        Cargar_P4();
          this.setLocationRelativeTo(null);
        
     }
@@ -106,6 +107,23 @@ public class Bodega extends javax.swing.JFrame {
         txtcant2 = new javax.swing.JSpinner();
         jLabel32 = new javax.swing.JLabel();
         txtprecio2 = new javax.swing.JTextField();
+        panel_panaderia3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtidprod3 = new javax.swing.JTextField();
+        txtname3 = new javax.swing.JTextField();
+        txtfv3 = new com.toedter.calendar.JDateChooser();
+        foto_panaderia3 = new javax.swing.JLabel();
+        Imagen3 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        cmbprov4 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        txtipanaderia1 = new javax.swing.JButton();
+        txtcant3 = new javax.swing.JSpinner();
+        jLabel21 = new javax.swing.JLabel();
+        txtprecio3 = new javax.swing.JTextField();
         btnsalir = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         btninventario = new javax.swing.JButton();
@@ -118,20 +136,39 @@ public class Bodega extends javax.swing.JFrame {
 
         panel_alimento.setBackground(new java.awt.Color(204, 204, 204));
         panel_alimento.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Tipo de alimento"));
-        panel_alimento.setLayout(null);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel10.setText("Bodega");
-        panel_alimento.add(jLabel10);
-        jLabel10.setBounds(350, 120, 150, 70);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Bodega.png"))); // NOI18N
-        panel_alimento.add(jLabel6);
-        jLabel6.setBounds(310, 200, 250, 250);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PlatodeComida830.jpg"))); // NOI18N
-        panel_alimento.add(jLabel5);
-        jLabel5.setBounds(10, 20, 600, 490);
+
+        javax.swing.GroupLayout panel_alimentoLayout = new javax.swing.GroupLayout(panel_alimento);
+        panel_alimento.setLayout(panel_alimentoLayout);
+        panel_alimentoLayout.setHorizontalGroup(
+            panel_alimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_alimentoLayout.createSequentialGroup()
+                .addGap(344, 344, 344)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_alimentoLayout.createSequentialGroup()
+                .addGap(304, 304, 304)
+                .addComponent(jLabel6))
+            .addGroup(panel_alimentoLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panel_alimentoLayout.setVerticalGroup(
+            panel_alimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_alimentoLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel6))
+            .addGroup(panel_alimentoLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         p4.addTab("Seleccione uno", panel_alimento);
 
@@ -631,6 +668,170 @@ public class Bodega extends javax.swing.JFrame {
 
         p4.addTab("Tienda", panel_panaderia2);
 
+        panel_panaderia3.setBackground(new java.awt.Color(204, 204, 204));
+        panel_panaderia3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), "Panaderia"));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Cantidad*:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Idingrediente*:");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Nombre*:");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Fecha de vencimiento* :");
+
+        txtidprod3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtidprod3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidprod3ActionPerformed(evt);
+            }
+        });
+
+        txtname3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        foto_panaderia3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        Imagen3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Imagen3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Imagen3ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setText("Seleccionar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        cmbprov4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbprov4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        cmbprov4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbprov4ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Proveedor*:");
+
+        txtipanaderia1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtipanaderia1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icono_nuevo.png"))); // NOI18N
+        txtipanaderia1.setText("Guardar");
+        txtipanaderia1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtipanaderia1ActionPerformed(evt);
+            }
+        });
+
+        txtcant3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("Precio*:");
+
+        txtprecio3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout panel_panaderia3Layout = new javax.swing.GroupLayout(panel_panaderia3);
+        panel_panaderia3.setLayout(panel_panaderia3Layout);
+        panel_panaderia3Layout.setHorizontalGroup(
+            panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel15)))
+                .addGap(4, 4, 4)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtidprod3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(138, 138, 138)
+                .addComponent(foto_panaderia3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(455, 455, 455)
+                .addComponent(Imagen3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jLabel9)
+                .addGap(10, 10, 10)
+                .addComponent(txtcant3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel16)
+                .addGap(4, 4, 4)
+                .addComponent(txtfv3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel17)
+                .addGap(10, 10, 10)
+                .addComponent(cmbprov4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(jLabel21)
+                .addGap(10, 10, 10)
+                .addComponent(txtprecio3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(416, 416, 416)
+                .addComponent(txtipanaderia1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panel_panaderia3Layout.setVerticalGroup(
+            panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel14)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel15))
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addComponent(txtidprod3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(txtname3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(foto_panaderia3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addComponent(Imagen3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel9))
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(txtcant3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfv3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbprov4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(panel_panaderia3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_panaderia3Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel21))
+                    .addComponent(txtprecio3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(txtipanaderia1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        p4.addTab("Ingredientes", panel_panaderia3);
+
         btnsalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnsalir.setText("Salir");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -678,8 +879,22 @@ public class Bodega extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(250, 250, 250)
+                .addGap(270, 270, 270)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(900, 900, 900)
+                .addComponent(btninventario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(920, 920, 920)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(900, 900, 900)
+                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel2)
+=======
                     .addComponent(btninventario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -689,10 +904,30 @@ public class Bodega extends javax.swing.JFrame {
                             .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(60, 60, 60))
+>>>>>>> a864b7f7262c6d1fbd52be3f45fcee6683907d89
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(70, 70, 70)
+                .addComponent(p4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(360, 360, 360)
+                .addComponent(btninventario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(410, 410, 410)
+                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel2)
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -709,6 +944,7 @@ public class Bodega extends javax.swing.JFrame {
                         .addGap(0, 0, 0)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(100, 100, 100))
+>>>>>>> a864b7f7262c6d1fbd52be3f45fcee6683907d89
         );
 
         pack();
@@ -727,8 +963,8 @@ public void Cargar_P()
                       while(raton.next())
                       {
                           nitprov=raton.getString("Nitproveedor");nombreprov=raton.getString("NombreProveedor");telefono=raton.getInt("Telefono");direccion=raton.getString("Direccion");
-                          proveedores=nitprov;
-                          c1=""+nitprov+" "+nombreprov;
+                          
+                          c1=""+nitprov;
                            cmbprov1.addItem(c1);
                 }
                 }catch(Exception e){}
@@ -748,8 +984,8 @@ public void Cargar_P2()
                       while(raton.next())
                       {
                           nitprov=raton.getString("Nitproveedor");nombreprov=raton.getString("NombreProveedor");telefono=raton.getInt("Telefono");direccion=raton.getString("Direccion");
-                          c1=""+nitprov+" "+nombreprov;
-                          proveedores2=nitprov;
+                          c1=""+nitprov;
+                          
                            cmbprov2.addItem(c1);
                 }
                 }catch(Exception e){}
@@ -769,9 +1005,30 @@ public void Cargar_P3()
                       while(raton.next())
                       {
                           nitprov=raton.getString("Nitproveedor");nombreprov=raton.getString("NombreProveedor");telefono=raton.getInt("Telefono");direccion=raton.getString("Direccion");
-                          c1=""+nitprov+" "+nombreprov;
-                          proveedores3=nitprov;
+                          c1=""+nitprov;
+                          
                            cmbprov3.addItem(c1);
+                }
+                }catch(Exception e){}
+                
+    }
+public void Cargar_P4()
+    {
+        cmbprov4.removeAllItems();
+       
+        String nitprov=provs.getNitproveedor(), nombreprov=provs.getNombreProveedor(), direccion=provs.getDirecion(),c1="";
+        int telefono=provs.getTelefono(), activo=provs.getActivo();
+            try
+                {
+                      String sql="select *from proveedores";
+                      PreparedStatement pes=cn.prepareStatement(sql);
+                      ResultSet raton=pes.executeQuery();
+                      while(raton.next())
+                      {
+                          nitprov=raton.getString("Nitproveedor");nombreprov=raton.getString("NombreProveedor");telefono=raton.getInt("Telefono");direccion=raton.getString("Direccion");
+                          c1=""+nitprov;
+                          
+                           cmbprov4.addItem(c1);
                 }
                 }catch(Exception e){}
                 
@@ -793,6 +1050,7 @@ public void Cargar_P3()
         String idproducto=txtidprod2.getText(),nombreprod=txtname2.getText();
         int categoria=2,activo=1;
         double precio=Double.parseDouble(txtprecio2.getText());
+        String proveedores3=cmbprov3.getSelectedItem().toString();
 
         try{
 
@@ -845,6 +1103,7 @@ public void Cargar_P3()
         String cantidad=txtcant1.getValue().toString();
         String idproducto=txtidprod1.getText(),nombreprod=txtname1.getText();
         int categoria=1,activo=1;
+        String proveedores2=cmbprov2.getSelectedItem().toString();
         double precio=Double.parseDouble(txtprecio1.getText());
 
         try{
@@ -901,7 +1160,7 @@ public void Cargar_P3()
         int categoria=1,
         activo=1;
         double precio=Double.parseDouble(txtprecio0.getText());
-
+         String proveedores=cmbprov1.getSelectedItem().toString();
         try{
 
             String sql="Insert into productos values ('"+idproducto+"','"+nombreprod+"','"+categoria+"','"+activo+"')";
@@ -964,6 +1223,47 @@ public void Cargar_P3()
         p4.setSelectedIndex(3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void txtidprod3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidprod3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidprod3ActionPerformed
+
+    private void Imagen3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Imagen3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Imagen3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void cmbprov4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbprov4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbprov4ActionPerformed
+
+    private void txtipanaderia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtipanaderia1ActionPerformed
+String dia = Integer.toString(txtfv3.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(txtfv3.getCalendar().get(Calendar.MONTH) + 1);
+        String year = Integer.toString(txtfv3.getCalendar().get(Calendar.YEAR));
+        String fecha = (dia + "/" + mes+ "/" + year);
+        String cantidad=txtcant3.getValue().toString();
+        String idproducto=txtidprod3.getText(),nombreprod=txtname3.getText();
+        int categoria=0,activo=1;
+        double precio=Double.parseDouble(txtprecio3.getText());
+         String proveedores=cmbprov4.getSelectedItem().toString();
+        try{
+
+            String sql="Insert into ingredientes values ('"+idproducto+"','"+nombreprod+"','"+categoria+"','"+activo+"','"+cantidad+"','"+proveedores+"','"+fecha+"','"+precio+"')";
+
+            PreparedStatement pes=cn.prepareStatement(sql);
+            pes.executeUpdate();
+
+            JOptionPane.showMessageDialog(rootPane, "Insertados");
+        }
+        catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(rootPane, "NO Insertados");
+        }        
+    }//GEN-LAST:event_txtipanaderia1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1004,18 +1304,22 @@ public void Cargar_P3()
     private javax.swing.JTextField Imagen;
     private javax.swing.JTextField Imagen1;
     private javax.swing.JTextField Imagen2;
+    private javax.swing.JTextField Imagen3;
     private javax.swing.JButton btninventario;
     private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> cmbprov1;
     private javax.swing.JComboBox<String> cmbprov2;
     private javax.swing.JComboBox<String> cmbprov3;
+    private javax.swing.JComboBox<String> cmbprov4;
     private javax.swing.JLabel foto_panaderia;
     private javax.swing.JLabel foto_panaderia1;
     private javax.swing.JLabel foto_panaderia2;
+    private javax.swing.JLabel foto_panaderia3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -1023,7 +1327,16 @@ public void Cargar_P3()
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+<<<<<<< HEAD
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+=======
+>>>>>>> a864b7f7262c6d1fbd52be3f45fcee6683907d89
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1039,28 +1352,36 @@ public void Cargar_P3()
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane p4;
     private javax.swing.JPanel panel_alimento;
     private javax.swing.JPanel panel_panaderia;
     private javax.swing.JPanel panel_panaderia1;
     private javax.swing.JPanel panel_panaderia2;
+    private javax.swing.JPanel panel_panaderia3;
     private javax.swing.JSpinner txtcant0;
     private javax.swing.JSpinner txtcant1;
     private javax.swing.JSpinner txtcant2;
+    private javax.swing.JSpinner txtcant3;
     private com.toedter.calendar.JDateChooser txtfv0;
     private com.toedter.calendar.JDateChooser txtfv1;
     private com.toedter.calendar.JDateChooser txtfv2;
+    private com.toedter.calendar.JDateChooser txtfv3;
     private javax.swing.JTextField txtidprod0;
     private javax.swing.JTextField txtidprod1;
     private javax.swing.JTextField txtidprod2;
+    private javax.swing.JTextField txtidprod3;
     private javax.swing.JButton txtipanaderia;
+    private javax.swing.JButton txtipanaderia1;
     private javax.swing.JButton txtlacteos;
     private javax.swing.JTextField txtname0;
     private javax.swing.JTextField txtname1;
     private javax.swing.JTextField txtname2;
+    private javax.swing.JTextField txtname3;
     private javax.swing.JTextField txtprecio0;
     private javax.swing.JTextField txtprecio1;
     private javax.swing.JTextField txtprecio2;
+    private javax.swing.JTextField txtprecio3;
     private javax.swing.JButton txttienda;
     // End of variables declaration//GEN-END:variables
 }
